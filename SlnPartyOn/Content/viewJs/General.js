@@ -1,0 +1,1 @@
+﻿var basepath = document.location.origin;

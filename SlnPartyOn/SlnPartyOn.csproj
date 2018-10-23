@@ -45,6 +45,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PasswordHashTool, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PasswordHashTool.1.0.0\lib\PasswordHashTool.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -783,6 +787,9 @@
     <Content Include="Content\vendors\summernote\dist\summernote-bs4.min.js" />
     <Content Include="Content\vendors\tinymce\themes\modern\theme.js" />
     <Content Include="Content\vendors\tinymce\tinymce.min.js" />
+    <Content Include="Content\viewJs\General.js" />
+    <Content Include="Content\viewJs\Seguridad\LoginVista.js" />
+    <Content Include="Content\viewJs\Seguridad\RegistrarLoginVista.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\fonts\openSans\OpenSans-Bold.woff" />
     <Content Include="Content\fonts\openSans\OpenSans-ExtraBold.woff" />
@@ -823,16 +830,18 @@
     <Compile Include="Controllers\FavoritoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\ValoracionController.cs" />
+    <Compile Include="Funciones\Utilitarios.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Asistente.cs" />
-    <Compile Include="Models\Categoria.cs" />
-    <Compile Include="Models\Comentario.cs" />
-    <Compile Include="Models\Evento.cs" />
-    <Compile Include="Models\Favorito.cs" />
-    <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Models\Valoracion.cs" />
+    <Compile Include="ModelsBusiness\UsuarioMB.cs" />
+    <Compile Include="Models\AsistenteModel.cs" />
+    <Compile Include="Models\CategoriaModel.cs" />
+    <Compile Include="Models\ComentarioModel.cs" />
+    <Compile Include="Models\EventoModel.cs" />
+    <Compile Include="Models\FavoritoModel.cs" />
+    <Compile Include="Models\UsuarioModel.cs" />
+    <Compile Include="Models\ValoracionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

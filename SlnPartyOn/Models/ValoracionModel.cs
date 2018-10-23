@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SlnPartyOn.Models
 {
-    public class Favorito
+    public class ValoracionModel
     {
     }
 }
