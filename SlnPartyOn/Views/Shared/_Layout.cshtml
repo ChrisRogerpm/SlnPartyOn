@@ -1,39 +1,133 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="~/Content/assets/img/favicon.ico">
+    <title>Sistema de Proyectos J & M International Consulting Group S.A.C</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/assets/css/bootstrap.min.css" media="screen" rel="stylesheet" />
+
+    <!-- Main CSS -->
+    <link href="~/Content/assets/css/main.css" rel="stylesheet" media="screen" />
+
+    <!-- Ion Icons -->
+    <link href="~/Content/assets/fonts/icomoon/icomoon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/assets/assets/bootstrap-duallistbox.css">
+
+    <link rel="stylesheet" href="~/Content/assets/css/datatables/dataTables.bs.min.css">
+
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+
+    <!-- Header starts -->
+    <header>
+
+        <!-- Logo starts -->
+        <a href="index-2.html" class="logo">
+            <img src="~/Content/assets/img/logo.png" alt="Bluemoon Admin" />
+        </a>
+        <!-- Logo ends -->
+        <!-- Header actions starts -->
+        <ul id="header-actions" class="clearfix">
+            <li class="list-box user-admin dropdown">
+                <div class="admin-details">
+                    <div class="name">Usuario</div>
+                    <div class="designation">Usuario</div>
+                </div>
+                <a id="drop4" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-account_circle"></i>
+                </a>
+                <ul class="dropdown-menu sm">
+                    <li class="dropdown-content">
+                        <a href="#">
+                            Cerrar Sesión
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Header actions ends -->
+    </header>
+    <!-- Header ends -->
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+
+        <!-- Navbar starts -->
+        <nav class="navbar navbar-default">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="navbar-text">Menu</span>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-navbar"
+                        aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"></ul>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="collapse-navbar">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" role="button"><i class="icon-blur_on"></i>Inicio <span class="caret"></span></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" role="button"><i class="icon-blur_on"></i>Eventos <span class="caret"></span></a>
+                    </li>
+                </ul>
             </div>
+        </nav>
+        <!-- Navbar ends -->
+        <!-- Dashboard wrapper starts -->
+        <div class="dashboard-wrapper">
+
+            <!-- Top bar starts -->
+            @RenderSection("Contentheader", required: false)
+            <!-- Top bar ends -->
+            <!-- Main container starts -->
+            <div class="main-container">
+
+                <!-- Row starts -->
+                @RenderBody()
+                <!-- Row ends -->
+            </div>
+            <!-- Main container ends -->
+
         </div>
-    </div>
+        <!-- Dashboard Wrapper End -->
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+    <!-- Container fluid ends -->
+    <!-- Footer Start -->
+    <footer>
+        © Sistema Gestión de Eventos <span>2018</span>
+    </footer>
+    <!-- Footer end -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Content/assets/js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <!-- jquery ScrollUp JS -->
+    <script src="~/Content/assets/js/scrollup/jquery.scrollUp.js"></script>
+    <script src="~/Content/assets/assets/jquery.bootstrap-duallistbox.js"></script>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/datatables/dataTables.min.js"></script>
+    <script src="~/Content/assets/js/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/datatables/custom-datatables.js"></script>
+    <!-- Custom JS -->
+    <script src="~/Content/assets/js/custom.js"></script>
+    <script>
+        $('#my_multi_select1').bootstrapDualListbox();
+        $('.TablaBasica').DataTable({
+            'iDisplayLength': 5,
+        });
+    </script>
+    @*@yield('scripts')*@
 </body>
 </html>
