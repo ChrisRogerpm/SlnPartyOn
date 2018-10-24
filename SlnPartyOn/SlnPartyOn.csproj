@@ -790,6 +790,8 @@
     <Content Include="Content\viewJs\General.js" />
     <Content Include="Content\viewJs\Seguridad\LoginVista.js" />
     <Content Include="Content\viewJs\Seguridad\RegistrarLoginVista.js" />
+    <Content Include="Content\viewJs\toastr.min.css" />
+    <Content Include="Content\viewJs\toastr.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\fonts\openSans\OpenSans-Bold.woff" />
     <Content Include="Content\fonts\openSans\OpenSans-ExtraBold.woff" />
@@ -822,6 +824,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\AsistenteController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\ComentarioController.cs" />
@@ -852,6 +855,7 @@
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Seguridad\Login.cshtml" />
     <Content Include="Views\Seguridad\RegistrarLogin.cshtml" />
+    <Content Include="Views\Usuario\InicioUsuario.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -861,12 +865,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Administrador\" />
     <Folder Include="Views\Asistente\" />
     <Folder Include="Views\Categoria\" />
     <Folder Include="Views\Comentario\" />
     <Folder Include="Views\Evento\" />
     <Folder Include="Views\Favorito\" />
-    <Folder Include="Views\Usuario\" />
     <Folder Include="Views\Valoracion\" />
   </ItemGroup>
   <PropertyGroup>

@@ -17,13 +17,45 @@ namespace SlnPartyOn.Controllers
         }
         public ActionResult LoginRegistroVista()
         {
+
             return View("~/Views/Seguridad/RegistrarLogin.cshtml");
         }
-        //[HttpPost]
-        //public ActionResult UsuarioRegistrarJson()
-        //{
-
-        //}
+        public ActionResult InicioUsuarioVista()
+        {
+            return View("~/Views/Usuario/InicioUsuario.cshtml");
+        }
+        [HttpPost]
+        public ActionResult UsuarioRegistrarLoginJson(UsuarioModel usuario)
+        {
+            var errormensaje = "";
+            bool respuestaConsulta = false;
+            var UsuarioID = 0;
+            var usuriologin = new UsuarioModel();
+            try
+            {
+                usuario.Password = PasswordHashTool.PasswordHashManager.CreateHash(usuario.Password);
+                UsuarioID = usuarioBm.UsuarioInsertarLogin(usuario);
+                if(UsuarioID > 0)
+                {
+                    usuriologin = usuarioBm.UsuarioIDObtener(UsuarioID);
+                    Session["Id"] = usuriologin.Id;
+                    Session["Nombre"] = usuriologin.Nombre;
+                    Session["Apellido"] = usuriologin.Apellido;
+                    Session["Email"] = usuriologin.Email;
+                    respuestaConsulta = true;
+                }
+                else
+                {
+                    respuestaConsulta = false;
+                    errormensaje = "No se ha podido registrar el usuario";
+                }
+            }
+            catch (Exception exp)
+            {
+                errormensaje = exp.Message + " ,Llame Administrador";
+            }
+            return Json(new { respuesta = respuestaConsulta, mensaje = errormensaje, usuario_ = UsuarioID });
+        }
         //[HttpPost]
         //public ActionResult UsuarioEditarJson()
         //{
@@ -34,14 +66,16 @@ namespace SlnPartyOn.Controllers
         {
             var errormensaje = "";
             bool respuestaConsulta = false;
+            var tipo_usuario = 0;
             var usuario = new UsuarioModel();
 
             try
             {
-                usuario = usuarioBm.UsuarioCoincidenciaJson(Email);
+                usuario = usuarioBm.UsuarioCoincidencia(Email);
                 if(usuario.Id > 0)
                 {
                     respuestaConsulta = PasswordHashTool.PasswordHashManager.ValidatePassword(Password, usuario.Password);
+                    tipo_usuario = usuario.TipoUsuario;
                     if (respuestaConsulta)
                     {
                         Session["Id"] = usuario.Id;
@@ -66,7 +100,7 @@ namespace SlnPartyOn.Controllers
                 errormensaje = exp.Message + " ,Contacte al Administrador";
             }
 
-            return Json(new { respuesta = respuestaConsulta, mensaje = errormensaje });
+            return Json(new { respuesta = respuestaConsulta, mensaje = errormensaje, usuario_ = tipo_usuario });
         }
     }
 }

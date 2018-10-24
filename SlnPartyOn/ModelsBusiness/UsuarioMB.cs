@@ -17,7 +17,7 @@ namespace SlnPartyOn.ModelsBusiness
             _conexion = ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
         }
 
-        public List<UsuarioModel> UsuarioListarNombreEmpleadoJson()
+        public List<UsuarioModel> UsuarioListar()
         {
             List<UsuarioModel> lista = new List<UsuarioModel>();
             string consulta = @"SELECT [Id]
@@ -64,7 +64,7 @@ namespace SlnPartyOn.ModelsBusiness
             return lista;
         }
 
-        public bool UsuarioInsertarJson(UsuarioModel usuario)
+        public bool UsuarioInsertar(UsuarioModel usuario)
         {
             bool respuesta = false;
             string consulta = @"INSERT INTO [dbo].[Usuario]
@@ -101,7 +101,45 @@ namespace SlnPartyOn.ModelsBusiness
             return respuesta;
         }
 
-        public bool UsuarioEditarJson(UsuarioModel usuario)
+        public int UsuarioInsertarLogin(UsuarioModel usuario)
+        {
+            int UsuarioId = 0;
+            string consulta = @"INSERT INTO [dbo].[Usuario]
+                               ([TipoUsuario]
+                               ,[Nombre]
+                               ,[Apellido]
+                               ,[Telefono]
+                               ,[Email]
+                               ,[Password]
+                               ,[FechaRegistro])
+                                 VALUES (@p0,@p1,@p2,@p3,@p4,@p5,@p6);SELECT SCOPE_IDENTITY()";
+
+            try
+            {
+                using (var con = new SqlConnection(_conexion))
+                {
+                    con.Open();
+                    var query = new SqlCommand(consulta, con);
+                    query.Parameters.AddWithValue("@p0", Utilitarios.ValidarInteger(2));
+                    query.Parameters.AddWithValue("@p1", Utilitarios.ValidarStr(usuario.Nombre));
+                    query.Parameters.AddWithValue("@p2", Utilitarios.ValidarStr(usuario.Apellido));
+                    query.Parameters.AddWithValue("@p3", Utilitarios.ValidarStr(usuario.Telefono));
+                    query.Parameters.AddWithValue("@p4", Utilitarios.ValidarStr(usuario.Email));
+                    query.Parameters.AddWithValue("@p5", Utilitarios.ValidarStr(usuario.Password));
+                    query.Parameters.AddWithValue("@p6", Utilitarios.ValidarDate(DateTime.Now));
+                    UsuarioId = Int32.Parse(query.ExecuteScalar().ToString());
+                    //query.ExecuteNonQuery();
+                    //respuesta = true;
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return UsuarioId;
+        }
+
+        public bool UsuarioEditar(UsuarioModel usuario)
         {
             bool respuesta = false;
             string consulta = @"UPDATE [dbo].[Usuario]
@@ -142,7 +180,7 @@ namespace SlnPartyOn.ModelsBusiness
             return respuesta;
         }
 
-        public UsuarioModel UsuarioIDObtenerJson(int usuarioId)
+        public UsuarioModel UsuarioIDObtener(int usuarioId)
         {
             UsuarioModel usuario = new UsuarioModel();
             string consulta = @"SELECT [Id]
@@ -190,7 +228,7 @@ namespace SlnPartyOn.ModelsBusiness
             return usuario;
         }
 
-        public UsuarioModel UsuarioCoincidenciaJson(string Email)
+        public UsuarioModel UsuarioCoincidencia(string Email)
         {
             UsuarioModel usuario = new UsuarioModel();
             string consulta = @"SELECT [Id]
