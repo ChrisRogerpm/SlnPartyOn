@@ -3,6 +3,25 @@
     Layout = null;
 }
 
+@using SlnPartyOn.Models
+@{
+    UsuarioModel usuario = (UsuarioModel)Session["UsuarioFull"];
+    string usuariotipo = "";
+
+    if (usuario != null)
+    {
+
+        if (usuario.TipoUsuario == 1)
+        {
+            Response.Redirect("~/Usuario/InicioAdministradorVista");
+        }
+        else
+        {
+            Response.Redirect("~/Usuario/InicioUsuarioVista");
+        }
+    }
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +51,7 @@
                                 <p>Tienes una cuenta?</p>
                                 <a class="btn get-started-btn bg-warning text-white IniciarLogin" href="#">Inicia Sesión Yá!</a>
                             </div>
-                            <form action="#" id="frmNuevo">
+                            <form action="#" id="frmNuevo" autocomplete="off">
                                 <h3 class="mr-auto text-center">Registro</h3>
                                 <p class="mb-5 mr-auto text-center">Introduzca sus datos a continuación.</p>
                                 <div class="form-group">

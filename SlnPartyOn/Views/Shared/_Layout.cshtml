@@ -1,11 +1,40 @@
-﻿<!DOCTYPE html>
+﻿@using SlnPartyOn.Models
+@{
+    int id = 0;
+    string NombreUsuario = "";
+    string tipousuario = "";
+    int tipo_usuario = 0;
+    UsuarioModel usuario = (UsuarioModel)Session["UsuarioFull"];
+
+    if (usuario == null)
+    {
+        Response.Redirect("~/");
+    }
+    else
+    {
+        id = usuario.Id;
+        NombreUsuario = usuario.Nombre + ' ' + usuario.Apellido;
+
+        if(usuario.TipoUsuario == 1)
+        {
+            tipousuario = "Administrador";
+            tipo_usuario = usuario.TipoUsuario;
+        }
+        else
+        {
+            tipousuario = "Cliente";
+            tipo_usuario = usuario.TipoUsuario;
+        }
+    }
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" href="~/Content/assets/img/favicon.ico">
-    <title>Sistema de Proyectos J & M International Consulting Group S.A.C</title>
+    <title>Sistema de Gestion de Eventos</title>
 
     <!-- Bootstrap CSS -->
     <link href="~/Content/assets/css/bootstrap.min.css" media="screen" rel="stylesheet" />
@@ -35,8 +64,8 @@
         <ul id="header-actions" class="clearfix">
             <li class="list-box user-admin dropdown">
                 <div class="admin-details">
-                    <div class="name">Usuario</div>
-                    <div class="designation">Usuario</div>
+                    <div class="name">@NombreUsuario</div>
+                    <div class="designation">@tipousuario</div>
                 </div>
                 <a id="drop4" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="icon-account_circle"></i>
@@ -71,16 +100,47 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="collapse-navbar">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" role="button"><i class="icon-blur_on"></i>Inicio <span class="caret"></span></a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" role="button"><i class="icon-blur_on"></i>Eventos <span class="caret"></span></a>
-                    </li>
-                </ul>
+                @if (tipo_usuario == 1)
+                {
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" role="button"><i class="icon-blur_on"></i>Inicio <span class="caret"></span></a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" role="button"><i class="icon-blur_on"></i>Usuarios <span class="caret"></span></a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" role="button"><i class="icon-blur_on"></i>Categoria <span class="caret"></span></a>
+                        </li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="~/Usuario/InicioUsuarioVista" role="button"><i class="icon-blur_on"></i>Inicio <span class="caret"></span></a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="~/Evento/EventoUsuarioListarVista" role="button"><i class="icon-blur_on"></i>Eventos <span class="caret"></span></a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" role="button"><i class="icon-blur_on"></i>Estado de Cuenta <span class="caret"></span></a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" role="button"><i class="icon-blur_on"></i>Estadistica <span class="caret"></span></a>
+                        </li>
+                    </ul>
+                }
             </div>
         </nav>
         <!-- Navbar ends -->
@@ -106,7 +166,7 @@
     <!-- Container fluid ends -->
     <!-- Footer Start -->
     <footer>
-        © Sistema Gestión de Eventos <span>2018</span>
+        © Sistema Gestión de Eventos <span>@DateTime.Now.Year</span>
     </footer>
     <!-- Footer end -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -122,12 +182,7 @@
     <script src="~/Content/assets/js/datatables/custom-datatables.js"></script>
     <!-- Custom JS -->
     <script src="~/Content/assets/js/custom.js"></script>
-    <script>
-        $('#my_multi_select1').bootstrapDualListbox();
-        $('.TablaBasica').DataTable({
-            'iDisplayLength': 5,
-        });
-    </script>
-    @*@yield('scripts')*@
+    <script src="~/Content/viewJs/General.js"></script>
+    @RenderSection("js", required: false)
 </body>
 </html>

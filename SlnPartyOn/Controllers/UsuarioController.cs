@@ -24,6 +24,10 @@ namespace SlnPartyOn.Controllers
         {
             return View("~/Views/Usuario/InicioUsuario.cshtml");
         }
+        public ActionResult InicioAdministradorVista()
+        {
+            return View("~/Views/Usuario/InicioAdministrador.cshtml");
+        }
         [HttpPost]
         public ActionResult UsuarioRegistrarLoginJson(UsuarioModel usuario)
         {
@@ -34,6 +38,8 @@ namespace SlnPartyOn.Controllers
             try
             {
                 usuario.Password = PasswordHashTool.PasswordHashManager.CreateHash(usuario.Password);
+                usuario.Nombre = usuario.Email;
+                //usuario.Apellido = DBNull.Value;
                 UsuarioID = usuarioBm.UsuarioInsertarLogin(usuario);
                 if(UsuarioID > 0)
                 {
@@ -82,6 +88,7 @@ namespace SlnPartyOn.Controllers
                         Session["Nombre"] = usuario.Nombre;
                         Session["Apellido"] = usuario.Apellido;
                         Session["Email"] = usuario.Email;
+                        Session["UsuarioFull"] = usuario;
                     }
                     else
                     {

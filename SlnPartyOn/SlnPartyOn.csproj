@@ -978,6 +978,14 @@
     <Content Include="Content\vendors\summernote\dist\summernote-bs4.min.js" />
     <Content Include="Content\vendors\tinymce\themes\modern\theme.js" />
     <Content Include="Content\vendors\tinymce\tinymce.min.js" />
+    <Content Include="Content\viewJs\Categoria\CategoriaEditarVista.js" />
+    <Content Include="Content\viewJs\Categoria\CategoriaInsertarVista.js" />
+    <Content Include="Content\viewJs\Categoria\CategoriaListarVista.js" />
+    <Content Include="Content\viewJs\Evento\EventoEditarVista.js" />
+    <Content Include="Content\viewJs\Evento\EventoInsertarVista.js" />
+    <Content Include="Content\viewJs\Evento\EventoListarVista.js" />
+    <Content Include="Content\viewJs\Evento\EventoUsuarioInsertarVista.js" />
+    <Content Include="Content\viewJs\Evento\EventoUsuarioListarVista.js" />
     <Content Include="Content\viewJs\General.js" />
     <Content Include="Content\viewJs\Seguridad\LoginVista.js" />
     <Content Include="Content\viewJs\Seguridad\RegistrarLoginVista.js" />
@@ -1028,6 +1036,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ModelsBusiness\CategoriaMB.cs" />
+    <Compile Include="ModelsBusiness\EventoMB.cs" />
     <Compile Include="ModelsBusiness\UsuarioMB.cs" />
     <Compile Include="Models\AsistenteModel.cs" />
     <Compile Include="Models\CategoriaModel.cs" />
@@ -1060,6 +1070,11 @@
     <Content Include="Views\Seguridad\Login.cshtml" />
     <Content Include="Views\Seguridad\RegistrarLogin.cshtml" />
     <Content Include="Views\Usuario\InicioUsuario.cshtml" />
+    <Content Include="Views\Usuario\InicioAdministrador.cshtml" />
+    <Content Include="Views\Evento\EventoListarVista.cshtml" />
+    <Content Include="Views\Evento\EventoUsuarioListarVista.cshtml" />
+    <Content Include="Views\Evento\EventoRegistrarVista.cshtml" />
+    <Content Include="Views\Evento\EventoUsuarioRegistrarVista.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1073,7 +1088,6 @@
     <Folder Include="Views\Asistente\" />
     <Folder Include="Views\Categoria\" />
     <Folder Include="Views\Comentario\" />
-    <Folder Include="Views\Evento\" />
     <Folder Include="Views\Favorito\" />
     <Folder Include="Views\Valoracion\" />
   </ItemGroup>
