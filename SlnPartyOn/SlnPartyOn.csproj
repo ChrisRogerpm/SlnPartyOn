@@ -987,6 +987,7 @@
     <Content Include="Content\viewJs\Evento\EventoUsuarioInsertarVista.js" />
     <Content Include="Content\viewJs\Evento\EventoUsuarioListarVista.js" />
     <Content Include="Content\viewJs\General.js" />
+    <Content Include="Content\viewJs\locationpicker.jquery.min.js" />
     <Content Include="Content\viewJs\Seguridad\LoginVista.js" />
     <Content Include="Content\viewJs\Seguridad\RegistrarLoginVista.js" />
     <Content Include="Content\viewJs\toastr.min.css" />

@@ -16,3 +16,20 @@ $.fn.serializeFormJSON = function () {
     });
     return o;
 };
+
+$("#btnCerrarSesion").click(function () {
+    $.ajax({
+        type: 'POST',
+        url: basepath + "/Usuario/CerrarSesionLoginJson",
+        success: function (response) {
+            var resp = response.respuesta;
+            var msj = response.mensaje;
+            if (resp) {
+                toastr.success('Cerrando Sesión, Vuelva Pronto', 'Mensaje Servidor');
+                window.location.replace(basepath + "/");
+            } else {
+                toastr.error(msj,'Mensaje Servidor');
+            }
+        }
+    });
+});

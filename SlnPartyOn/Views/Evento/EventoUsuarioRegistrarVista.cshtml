@@ -3,5 +3,99 @@
     ViewBag.Title = "EventoUsuarioRegistrarVista";
 }
 
-<h2>EventoUsuarioRegistrarVista</h2>
+@section Contentheader{
+    <div class="top-bar clearfix">
+        <div class="row gutter">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="page-title">
+                    <h4>Registrar Evento</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 
+<div class="row gutter">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel">
+            <div class="panel-heading text-center" style="background:#2292DB; color:#fff">
+                <h4>Datos de Evento</h4>
+            </div>
+            <div class="panel-body">
+                <form id="frmNuevo">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Nombre de Evento</label>
+                                <input type="text" placeholder="Ingrese Evento" class="form-control input-sm" name="Nombre_Evento" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Descripcion de Evento</label>
+                                <textarea name="Descripcion_Evento" style="resize:none;" id="txtDescripcion_Evento" cols="30" rows="5" class="form-control input-sm"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Dirección (Referencial)</label>
+                                <input type="text" placeholder="Ingrese Dirección" class="form-control input-sm" name="Direccion_Evento" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Categoria</label>
+                                <select class="form-control input-sm" id="cboCategoriaId" name="CategoriaId"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Fecha de Evento</label>
+                                <input type="date" placeholder="Ingrese su Fecha" class="form-control input-sm" name="FechaInicioEvento" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Fecha de Evento</label>
+                                <input type="time" placeholder="Ingrese su Hora" class="form-control input-sm" name="HoraEvento" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Portada de Evento</label>
+                                <input type="file" class="form-control input-sm" name="Imagen" />
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label class="control-label">Localización</label>
+                                <input type="text" placeholder="Ingrese su localización" id="txtLocalizacion" class="form-control input-sm" />
+                            </div>
+                            <div id="us3" style="height: 400px; border:1px solid #CCCCCC"></div>
+                            <div class="col-sm-3">
+                                <input type="hidden" class="form-control" name="latitud" id="us3-lat" />
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="hidden" class="form-control" name="longitud" id="us3-lon" />
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-info pull-right" id="btnRegistrarEvento">Registrar Evento</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section js{
+    <script>
+        $('#us3').locationpicker({
+        location: {
+        latitude: -18.0065679,
+        longitude: -70.2462741
+        },
+        radius: 300,
+        inputBinding: {
+        latitudeInput: $('#us3-lat'),
+        longitudeInput: $('#us3-lon'),
+        radiusInput: $('#us3-radius'),
+        locationNameInput: $('#txtLocalizacion')
+        },
+        enableAutocomplete: true,
+        onchanged: function (currentLocation, radius, isMarkerDropped) {
+        // Uncomment line below to show alert on each Location Changed event
+        // alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")");
+        }
+        });
+    </script>
+    <script src="~/Content/viewJs/Evento/EventoUsuarioInsertarVista.js"></script>
+}

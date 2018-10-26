@@ -44,7 +44,7 @@
 
     <!-- Ion Icons -->
     <link href="~/Content/assets/fonts/icomoon/icomoon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/Content/assets/assets/bootstrap-duallistbox.css">
+    <link href="~/Content/viewJs/toastr.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="~/Content/assets/css/datatables/dataTables.bs.min.css">
 
@@ -72,7 +72,7 @@
                 </a>
                 <ul class="dropdown-menu sm">
                     <li class="dropdown-content">
-                        <a href="#">
+                        <a href="#" id="btnCerrarSesion">
                             Cerrar Sesión
                         </a>
                     </li>
@@ -175,13 +175,14 @@
     <script src="~/Content/assets/js/bootstrap.min.js"></script>
     <!-- jquery ScrollUp JS -->
     <script src="~/Content/assets/js/scrollup/jquery.scrollUp.js"></script>
-    <script src="~/Content/assets/assets/jquery.bootstrap-duallistbox.js"></script>
-
     <script src="~/Content/assets/js/datatables/dataTables.min.js"></script>
     <script src="~/Content/assets/js/datatables/dataTables.bootstrap.min.js"></script>
     <script src="~/Content/assets/js/datatables/custom-datatables.js"></script>
     <!-- Custom JS -->
     <script src="~/Content/assets/js/custom.js"></script>
+    <script src="~/Content/viewJs/toastr.min.js"></script>
+    <script type="text/javascript" src='https://maps.google.com/maps/api/js?key=AIzaSyCVE9GlwM_MZv_nXDNIwyr5cNXOacsay_4&libraries=places'></script>
+    <script src="~/Content/viewJs/locationpicker.jquery.min.js"></script>
     <script src="~/Content/viewJs/General.js"></script>
     @RenderSection("js", required: false)
 </body>

@@ -68,6 +68,26 @@ namespace SlnPartyOn.Controllers
 
         //}
         [HttpPost]
+        public ActionResult CerrarSesionLoginJson()
+        {
+            var errormensaje = "";
+            bool respuestaConsulta = false;
+            try
+            {
+                Session["Id"] = null;
+                Session["Nombre"] = null;
+                Session["Apellido"] = null;
+                Session["Email"] = null;
+                Session["UsuarioFull"] = null;
+                respuestaConsulta = true;
+            }
+            catch (Exception exp)
+            {
+                errormensaje = exp.Message + " ,Llame Administrador";
+            }
+            return Json(new { respuesta = respuestaConsulta, mensaje = errormensaje });
+        }
+        [HttpPost]
         public ActionResult IniciarSesionLoginJson(string Email, string Password)
         {
             var errormensaje = "";

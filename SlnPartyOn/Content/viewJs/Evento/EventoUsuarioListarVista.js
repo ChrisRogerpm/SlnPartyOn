@@ -16,7 +16,7 @@ function ListarEventoUsuario() {
                     '        <div class="card-wrapper blue">\n' +
                     '            <div class="card clearfix">\n' +
                     '                <span class="card-type">1st</span>\n' +
-                    '                <img src="../Content/assets/img/thumbs/user1.png" class="img-responsive card-avatar" alt="Arise Admin">\n' +
+                    '                <img src="../Content/Evento/' + value.Imagen + '" class="img-responsive card-avatar" alt="Arise Admin">\n' +
                     '                <p>' + value.Nombre_Evento+'</p>\n' +
                     '                <h5>Tech Chimps Inc</h5>\n' +
                     '                <p><strong>' + value.Descripcion_Evento+'</strong></p>\n' +
