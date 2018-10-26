@@ -28018,10 +28018,10 @@ div.tagsinput span.tag a {
   min-height: 100vh;
 }
 
-.auth.auth-bg-1 {
-  background: url("../images/auth/login_1.jpg");
-  background-size: cover;
-}
+    .auth.auth-bg-1 {
+        background: url("../images/auth/logo_black.png");
+        background-size: cover;
+    }
 
 .auth.register-bg-1 {
   background: url("../images/auth/register.jpg") center center no-repeat;
@@ -28291,19 +28291,19 @@ div.tagsinput span.tag a {
   width: 100%;
 }
 
-.auth.theme-two .banner-section .slide-content.bg-1 {
-  background: url("../images/auth/login_2.jpg") no-repeat center center;
-  background-size: cover;
-}
+    .auth.theme-two .banner-section .slide-content.bg-1 {
+        background: url("../images/auth/logo_black.png") no-repeat center center;
+        background-size: cover;
+    }
 
 .auth.theme-two .banner-section .slide-content.bg-2 {
-  background: url("../images/auth/register_2.jpg") no-repeat center center;
+  background: url("../images/auth/logo_black.png") no-repeat center center;
   background-size: cover;
 }
 
 .lock-full-bg {
-  background: url("../images/auth/login_1.jpg");
-  background-size: cover;
+    background: url("../images/auth/logo_black.png");
+    background-size: cover;
 }
 
 /* Error */
