@@ -35,6 +35,7 @@ namespace SlnPartyOn.Controllers
             bool respuestaConsulta = false;
             var UsuarioID = 0;
             var usuriologin = new UsuarioModel();
+            var id_tipousuario = 0;
             try
             {
                 usuario.Password = PasswordHashTool.PasswordHashManager.CreateHash(usuario.Password);
@@ -48,6 +49,8 @@ namespace SlnPartyOn.Controllers
                     Session["Nombre"] = usuriologin.Nombre;
                     Session["Apellido"] = usuriologin.Apellido;
                     Session["Email"] = usuriologin.Email;
+                    Session["UsuarioFull"] = usuriologin;
+                    id_tipousuario = usuriologin.TipoUsuario;
                     respuestaConsulta = true;
                 }
                 else
@@ -60,7 +63,7 @@ namespace SlnPartyOn.Controllers
             {
                 errormensaje = exp.Message + " ,Llame Administrador";
             }
-            return Json(new { respuesta = respuestaConsulta, mensaje = errormensaje, usuario_ = UsuarioID });
+            return Json(new { respuesta = respuestaConsulta, mensaje = errormensaje, usuario_ = id_tipousuario });
         }
         //[HttpPost]
         //public ActionResult UsuarioEditarJson()

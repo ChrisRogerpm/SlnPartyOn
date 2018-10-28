@@ -28,6 +28,11 @@ namespace SlnPartyOn.Controllers
         {
             return View("~/Views/Evento/EventoRegistrarVista.cshtml");
         }
+        public ActionResult EventoUsuarioEditarVistar(int Id)
+        {
+            ViewBag.Id = Id;
+            return View("~/Views/Evento/EventoUsuarioEditarVista.cshtml");
+        }
         [HttpPost]
         public ActionResult EventoUsuarioRegistrarJson(EventoModel evento)
         {
@@ -87,6 +92,73 @@ namespace SlnPartyOn.Controllers
                 errormensaje = exp.Message + ",Llame Administrador";
             }
             return Json(new { data = lista.ToList(), mensaje = errormensaje });
+        }
+        [HttpPost]
+        public ActionResult EventoUsuarioIDObtenerJson(int Id)
+        {
+            var errormensaje = "";
+            var evento = new EventoModel();
+            bool respuestaconsulta = false;
+            try
+            {
+                evento = eventomb.EventoIDJson(Id);
+                respuestaconsulta = true;
+
+            }
+            catch (Exception exp)
+            {
+                errormensaje = exp.Message + ",Llame Administrador";
+            }
+
+            return Json(new { data = evento,respuesta = respuestaconsulta, mensaje = errormensaje });
+        }
+        [HttpPost]
+        public ActionResult EventoUsuarioEditarJson(EventoModel evento)
+        {
+            var errormensaje = "";
+            bool respuestaConsulta = false;
+            try
+            {
+                HttpPostedFileBase file = Request.Files["Imagen"];
+                if (Request.Files.Count > 0)
+                {
+                    if (file.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file.FileName);
+                        var archivoNombre = "_" + file.FileName.Replace(" ", string.Empty);
+                        var path = Server.MapPath("~/Content/Evento/") + "_" + file.FileName.Replace(" ", string.Empty);
+                        if (System.IO.File.Exists(path))
+                        {
+                            System.IO.File.Delete(path);
+                        }
+                        var exists = System.IO.Directory.Exists(Server.MapPath("~/Content/Evento/"));
+                        if (!exists)
+                        {
+                            System.IO.Directory.CreateDirectory(Server.MapPath("~/Content/Evento/"));
+                        }
+                        file.SaveAs(path);
+                        evento.Imagen = archivoNombre;
+                        evento.UsuarioId = Convert.ToInt32(Session["Id"]);
+                        respuestaConsulta = eventomb.EventoUsuarioEditar(evento);
+                    }
+                    else
+                    {
+                        evento.UsuarioId = Convert.ToInt32(Session["Id"]);
+                        respuestaConsulta = eventomb.EventoUsuarioEditar(evento);
+                    }
+                }
+                else
+                {
+                    
+                }
+
+            }
+            catch (Exception exp)
+            {
+                errormensaje = exp.Message + " ,Llame Administrador";
+            }
+
+            return Json(new { respuesta = respuestaConsulta, mensaje = errormensaje });
         }
     }
 }

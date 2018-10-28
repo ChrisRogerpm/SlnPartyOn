@@ -16,6 +16,7 @@
                 contentType: "application/json",
                 data: JSON.stringify(dataForm),
                 success: function (response) {
+                    debugger
                     var resp = response.respuesta;
                     var msj = response.mensaje;
                     var tipo_usuario = response.usuario_;

@@ -986,6 +986,7 @@
     <Content Include="Content\viewJs\Evento\EventoEditarVista.js" />
     <Content Include="Content\viewJs\Evento\EventoInsertarVista.js" />
     <Content Include="Content\viewJs\Evento\EventoListarVista.js" />
+    <Content Include="Content\viewJs\Evento\EventoUsuarioEditarVista.js" />
     <Content Include="Content\viewJs\Evento\EventoUsuarioInsertarVista.js" />
     <Content Include="Content\viewJs\Evento\EventoUsuarioListarVista.js" />
     <Content Include="Content\viewJs\General.js" />
@@ -1027,6 +1028,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\ApiController.cs" />
     <Compile Include="Controllers\AsistenteController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\ComentarioController.cs" />
@@ -1078,6 +1080,9 @@
     <Content Include="Views\Evento\EventoUsuarioListarVista.cshtml" />
     <Content Include="Views\Evento\EventoRegistrarVista.cshtml" />
     <Content Include="Views\Evento\EventoUsuarioRegistrarVista.cshtml" />
+    <Content Include="Views\Evento\EventoUsuarioEditarVista.cshtml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1088,6 +1093,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Administrador\" />
+    <Folder Include="Views\Api\" />
     <Folder Include="Views\Asistente\" />
     <Folder Include="Views\Categoria\" />
     <Folder Include="Views\Comentario\" />

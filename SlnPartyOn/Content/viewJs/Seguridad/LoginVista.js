@@ -29,7 +29,7 @@
                     if (tipo_usuario === 1) {
                         window.location.replace(basepath + "/Administrativo/");
                     } else {
-                        window.location.replace(basepath + "/Usuario/InicioUsuarioVista");
+                        window.location.replace("../Usuario/InicioUsuarioVista");
                     }
                 } else {
                     toastr.error(msj, 'Mensaje Servidor');
