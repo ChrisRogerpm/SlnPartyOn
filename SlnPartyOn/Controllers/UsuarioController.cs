@@ -65,11 +65,6 @@ namespace SlnPartyOn.Controllers
             }
             return Json(new { respuesta = respuestaConsulta, mensaje = errormensaje, usuario_ = id_tipousuario });
         }
-        //[HttpPost]
-        //public ActionResult UsuarioEditarJson()
-        //{
-
-        //}
         [HttpPost]
         public ActionResult CerrarSesionLoginJson()
         {
@@ -131,6 +126,24 @@ namespace SlnPartyOn.Controllers
             }
 
             return Json(new { respuesta = respuestaConsulta, mensaje = errormensaje, usuario_ = tipo_usuario });
+        }
+        [HttpPost]
+        public ActionResult UsuarioIdObtenerJson()
+        {
+            var errormensaje = "";
+            bool respuestaConsulta = false;
+            var usuario = new UsuarioModel();
+            int Id = Convert.ToInt32(Session["Id"]);
+            try
+            {
+                usuario = usuarioBm.UsuarioIDObtener(Id);
+                respuestaConsulta = true;
+            }
+            catch(Exception exp)
+            {
+                errormensaje = exp.Message + " ,Llame Administrador";
+            }
+            return Json(new { respuesta = respuestaConsulta, mensaje = errormensaje, data = usuario });
         }
     }
 }

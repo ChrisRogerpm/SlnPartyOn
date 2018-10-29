@@ -995,6 +995,7 @@
     <Content Include="Content\viewJs\Seguridad\RegistrarLoginVista.js" />
     <Content Include="Content\viewJs\toastr.min.css" />
     <Content Include="Content\viewJs\toastr.min.js" />
+    <Content Include="Content\viewJs\Usuario\PerfilVista.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\fonts\openSans\OpenSans-Bold.woff" />
     <Content Include="Content\fonts\openSans\OpenSans-ExtraBold.woff" />
