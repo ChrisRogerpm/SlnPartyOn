@@ -130,6 +130,7 @@
     <Content Include="Content\assets\img\bluemoon-blog5.jpg" />
     <Content Include="Content\assets\img\bluemoon-blog7.jpg" />
     <Content Include="Content\assets\img\bluemoon-lg.png" />
+    <Content Include="Content\assets\img\favi.png" />
     <Content Include="Content\assets\img\favicon.ico" />
     <Content Include="Content\assets\img\logo.png" />
     <Content Include="Content\assets\img\sprite.png" />
@@ -170,6 +171,7 @@
     <Content Include="Content\assets\img\thumbs\user7.png" />
     <Content Include="Content\assets\img\thumbs\user8.png" />
     <Content Include="Content\assets\img\thumbs\user9.png" />
+    <Content Include="Content\assets\img\user.png" />
     <Content Include="Content\assets\js\alertify\alertify-custom.js" />
     <Content Include="Content\assets\js\alertify\alertify.js" />
     <Content Include="Content\assets\js\barIndicator\barIndicator.css" />
