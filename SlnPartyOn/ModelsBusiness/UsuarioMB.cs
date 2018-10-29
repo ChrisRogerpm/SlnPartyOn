@@ -74,8 +74,9 @@ namespace SlnPartyOn.ModelsBusiness
                                ,[Telefono]
                                ,[Email]
                                ,[Password]
-                               ,[FechaRegistro])
-                                 VALUES (@p0,@p1,@p2,@p3,@p4,@p5,@p6)";
+                               ,[FechaRegistro]
+                               ,[Imagen])
+                                 VALUES (@p0,@p1,@p2,@p3,@p4,@p5,@p6,@p7)";
 
             try
             {
@@ -90,6 +91,7 @@ namespace SlnPartyOn.ModelsBusiness
                     query.Parameters.AddWithValue("@p4", Utilitarios.ValidarStr(usuario.Email));
                     query.Parameters.AddWithValue("@p5", Utilitarios.ValidarStr(usuario.Password));
                     query.Parameters.AddWithValue("@p6", Utilitarios.ValidarDate(usuario.FechaRegistro));
+                    query.Parameters.AddWithValue("@p7", Utilitarios.ValidarStr(usuario.Imagen));
                     query.ExecuteNonQuery();
                     respuesta = true;
                 }
@@ -111,8 +113,9 @@ namespace SlnPartyOn.ModelsBusiness
                                ,[Telefono]
                                ,[Email]
                                ,[Password]
-                               ,[FechaRegistro])
-                                 VALUES (@p0,@p1,@p2,@p3,@p4,@p5,@p6);SELECT SCOPE_IDENTITY()";
+                               ,[FechaRegistro]
+                               ,[Imagen])
+                                 VALUES (@p0,@p1,@p2,@p3,@p4,@p5,@p6,@p7);SELECT SCOPE_IDENTITY()";
 
             try
             {
@@ -127,9 +130,8 @@ namespace SlnPartyOn.ModelsBusiness
                     query.Parameters.AddWithValue("@p4", Utilitarios.ValidarStr(usuario.Email));
                     query.Parameters.AddWithValue("@p5", Utilitarios.ValidarStr(usuario.Password));
                     query.Parameters.AddWithValue("@p6", Utilitarios.ValidarDate(DateTime.Now));
+                    query.Parameters.AddWithValue("@p7", Utilitarios.ValidarStr("Default.png"));
                     UsuarioId = Int32.Parse(query.ExecuteScalar().ToString());
-                    //query.ExecuteNonQuery();
-                    //respuesta = true;
                 }
             }
             catch (Exception ex)
@@ -150,10 +152,11 @@ namespace SlnPartyOn.ModelsBusiness
                                   ,[Email] = @p5
                                    ,[Password] = @p6
                                   ,[FechaRegistro] = @p7
-                             WHERE Id = @p8";
+                                    {0}
+                             WHERE Id = @p9";
 
-            //usuario.Password = usuario.Password == "" ? "" : ",[UsuarioPassword] = @p3";   //estado == "1" ? ",[FailedAttempts] = 0" : "";
-            //consulta = String.Format(consulta, segUsuario.UsuarioPassword);
+            string ImagenEntrante = usuario.Imagen == null ? "" : ",[Imagen] = @p8";
+            consulta = String.Format(consulta, ImagenEntrante);
 
             try
             {
@@ -168,7 +171,8 @@ namespace SlnPartyOn.ModelsBusiness
                     query.Parameters.AddWithValue("@p5", Utilitarios.ValidarStr(usuario.Email));
                     query.Parameters.AddWithValue("@p6", Utilitarios.ValidarStr(usuario.Password));
                     query.Parameters.AddWithValue("@p7", Utilitarios.ValidarDate(usuario.FechaRegistro));
-                    query.Parameters.AddWithValue("@p8", Utilitarios.ValidarInteger(usuario.Id));
+                    query.Parameters.AddWithValue("@p8", Utilitarios.ValidarDate(usuario.Imagen));
+                    query.Parameters.AddWithValue("@p9", Utilitarios.ValidarInteger(usuario.Id));
                     query.ExecuteNonQuery();
                     respuesta = true;
                 }
@@ -191,6 +195,7 @@ namespace SlnPartyOn.ModelsBusiness
                                   ,[Email]
                                   ,[Password]
                                   ,[FechaRegistro]
+                                  ,[Imagen]
                                   FROM [dbo].[Usuario]
                                     where Id= @p0";
             try
@@ -215,6 +220,7 @@ namespace SlnPartyOn.ModelsBusiness
                                 usuario.Email = Utilitarios.ValidarStr(dr["Email"]);
                                 usuario.Password = Utilitarios.ValidarStr(dr["Password"]);
                                 usuario.FechaRegistro = Utilitarios.ValidarDate(dr["FechaRegistro"]);
+                                usuario.Imagen = Utilitarios.ValidarStr(dr["Imagen"]);
                             }
                         }
                     }
