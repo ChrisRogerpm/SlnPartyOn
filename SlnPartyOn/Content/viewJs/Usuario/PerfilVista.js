@@ -15,7 +15,13 @@ function MostrarDatosUsuario() {
             $("#txtTelefono").val(resp.Telefono);
             $("#txtEmail").val(resp.Email);
             $("#txtFecha").val(moment(resp.FechaRegistro).format('YYYY-MM-DD'));
-            $(".user-img").empty().append('<img src="../Content/Usuario/' + resp.Imagen + '" alt="' + resp.Nombre+'" />');
+            $(".user-img").empty().append('<img src="../Content/Usuario/' + resp.Imagen + '" alt="' + resp.Nombre + '" />');
+            $(".nombre").text(resp.Nombre + ' ' + resp.Apellido);
+            if (resp.TipoUsuario === 1) {
+                $(".cliente").text('Administrador');
+            } else {
+                $(".cliente").text('Cliente');
+            }
         }
     });
 }
