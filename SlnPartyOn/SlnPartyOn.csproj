@@ -294,6 +294,7 @@
     <Content Include="Content\images\auth\logEvemtos_white.png" />
     <Content Include="Content\images\auth\login_1.jpg" />
     <Content Include="Content\images\auth\login_2.jpg" />
+    <Content Include="Content\images\auth\logo_black.mp4" />
     <Content Include="Content\images\auth\logo_black.png" />
     <Content Include="Content\images\auth\register.jpg" />
     <Content Include="Content\images\auth\register_2.jpg" />
@@ -440,6 +441,7 @@
     <Content Include="Content\js\typeahead.js" />
     <Content Include="Content\js\wizard.js" />
     <Content Include="Content\js\x-editable.js" />
+    <Content Include="Content\Usuario\user.png" />
     <Content Include="Content\vendors\ace-builds\src-min\ace.js" />
     <Content Include="Content\vendors\css\vendor.bundle.addons.css" />
     <Content Include="Content\vendors\css\vendor.bundle.base.css" />
