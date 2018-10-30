@@ -15,7 +15,7 @@ function ListarEventoUsuario() {
                 $(".contenedor_evento_usuario").append('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">\n' +
                     '        <div class="card-wrapper blue">\n' +
                     '            <div class="card clearfix">\n' +
-                    '                <span class="card-type"><i class="icon-check3"></i></span>\n' +
+                    
                     '                <a href="../Evento/EventoUsuarioEditarVistar/' + value.Id +'"> <img src="../Content/Evento/' + value.Imagen + '" class="img-thumbnail" alt="Arise Admin" style="margin-bottom:15px; height:200px;"> </a>\n' +
                     '                <h4><strong>' + value.Nombre_Evento +'</strong></h4>\n' +
                     '                <h5></h5>\n' +
@@ -23,13 +23,6 @@ function ListarEventoUsuario() {
                     '            </div>\n' +
                     '        </div>\n' +
                     '    </div>');
-            });
-
-            $(".btn-Editar").tooltip({
-                title: "Editar Evento"
-            });
-            $(".btn-Informacion").tooltip({
-                title: "Información de Evento"
             });
         }
     });
