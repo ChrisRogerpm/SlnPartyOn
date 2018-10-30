@@ -73,6 +73,116 @@ namespace SlnPartyOn.ModelsBusiness
 
             return lista;
         }
+        public List<EventoModel> EventoCategoriaListar(int id)
+        {
+            List<EventoModel> lista = new List<EventoModel>();
+            string consulta = @"SELECT [id]
+                                ,[Nombre_Evento]
+                                ,[Descripcion_Evento]
+                                ,[UsuarioId]
+                                ,[CategoriaId]
+                                ,[FechaInicioEvento]
+                                ,[HoraEvento]
+                                ,[Direccion_Evento]
+                                ,[Imagen]
+                                ,[Estado_Evento]
+                                ,[latitud]
+                                ,[longitud]
+                            FROM [dbo].[Evento]
+                            where CategoriaId = @p0
+                            order by Id Desc";
+            try
+            {
+                using (var con = new SqlConnection(_conexion))
+                {
+                    con.Open();
+                    var query = new SqlCommand(consulta, con);
+                    query.Parameters.AddWithValue("@p0", id);
+                    using (var dr = query.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            var eventomodel = new EventoModel
+                            {
+                                Id = Utilitarios.ValidarInteger(dr["Id"]),
+                                Nombre_Evento = Utilitarios.ValidarStr(dr["Nombre_Evento"]),
+                                Descripcion_Evento = Utilitarios.ValidarStr(dr["Descripcion_Evento"]),
+                                UsuarioId = Utilitarios.ValidarInteger(dr["UsuarioId"]),
+                                CategoriaId = Utilitarios.ValidarInteger(dr["CategoriaId"]),
+                                FechaInicioEvento = Utilitarios.ValidarDate(dr["FechaInicioEvento"]),
+                                HoraEvento = Utilitarios.ValidarStr(dr["HoraEvento"]),
+                                Direccion_Evento = Utilitarios.ValidarStr(dr["Direccion_Evento"]),
+                                Imagen = Utilitarios.ValidarStr(dr["Imagen"]),
+                                Estado_Evento = Utilitarios.ValidarBool(dr["Estado_Evento"]),
+                                latitud = Utilitarios.ValidarStr(dr["latitud"]),
+                                longitud = Utilitarios.ValidarStr(dr["longitud"])
+                            };
+                            lista.Add(eventomodel);
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return lista;
+        }
+        public List<EventoModel> EventoListar()
+        {
+            List<EventoModel> lista = new List<EventoModel>();
+            string consulta = @"SELECT [id]
+                                ,[Nombre_Evento]
+                                ,[Descripcion_Evento]
+                                ,[UsuarioId]
+                                ,[CategoriaId]
+                                ,[FechaInicioEvento]
+                                ,[HoraEvento]
+                                ,[Direccion_Evento]
+                                ,[Imagen]
+                                ,[Estado_Evento]
+                                ,[latitud]
+                                ,[longitud]
+                            FROM [dbo].[Evento]
+                            order by Id Desc";
+            try
+            {
+                using (var con = new SqlConnection(_conexion))
+                {
+                    con.Open();
+                    var query = new SqlCommand(consulta, con);
+                    using (var dr = query.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            var eventomodel = new EventoModel
+                            {
+                                Id = Utilitarios.ValidarInteger(dr["Id"]),
+                                Nombre_Evento = Utilitarios.ValidarStr(dr["Nombre_Evento"]),
+                                Descripcion_Evento = Utilitarios.ValidarStr(dr["Descripcion_Evento"]),
+                                UsuarioId = Utilitarios.ValidarInteger(dr["UsuarioId"]),
+                                CategoriaId = Utilitarios.ValidarInteger(dr["CategoriaId"]),
+                                FechaInicioEvento = Utilitarios.ValidarDate(dr["FechaInicioEvento"]),
+                                HoraEvento = Utilitarios.ValidarStr(dr["HoraEvento"]),
+                                Direccion_Evento = Utilitarios.ValidarStr(dr["Direccion_Evento"]),
+                                Imagen = Utilitarios.ValidarStr(dr["Imagen"]),
+                                Estado_Evento = Utilitarios.ValidarBool(dr["Estado_Evento"]),
+                                latitud = Utilitarios.ValidarStr(dr["latitud"]),
+                                longitud = Utilitarios.ValidarStr(dr["longitud"])
+                            };
+                            lista.Add(eventomodel);
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return lista;
+        }
 
         public bool EventoUsuarioInsertar(EventoModel evento)
         {

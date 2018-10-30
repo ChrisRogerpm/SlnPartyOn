@@ -287,6 +287,15 @@
     <Content Include="Content\assets\js\treeview\custom-treeview.js" />
     <Content Include="Content\assets\js\wysiwyg-editor\editor.js" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\Evento\_1.PNG" />
+    <Content Include="Content\Evento\_2.PNG" />
+    <Content Include="Content\Evento\_3.PNG" />
+    <Content Include="Content\Evento\_44406456_344093826137684_999435595539283968_n.png" />
+    <Content Include="Content\Evento\_8sKoSJpr.jpg" />
+    <Content Include="Content\Evento\_colors_splash-wallpaper-2560x1440.jpg" />
+    <Content Include="Content\Evento\_hd-mobile-wallpapers-1.jpg" />
+    <Content Include="Content\Evento\_mystic_sunset_by_ellysiumn-dcor40r.png" />
+    <Content Include="Content\Evento\_unnamed.png" />
     <Content Include="Content\fonts\openSans\OpenSans-Bold.html" />
     <Content Include="Content\fonts\openSans\OpenSans-ExtraBold.html" />
     <Content Include="Content\fonts\openSans\OpenSans-Light.html" />
@@ -440,6 +449,7 @@
     <Content Include="Content\js\typeahead.js" />
     <Content Include="Content\js\wizard.js" />
     <Content Include="Content\js\x-editable.js" />
+    <Content Include="Content\Usuario\default.jpg" />
     <Content Include="Content\vendors\ace-builds\src-min\ace.js" />
     <Content Include="Content\vendors\css\vendor.bundle.addons.css" />
     <Content Include="Content\vendors\css\vendor.bundle.base.css" />
