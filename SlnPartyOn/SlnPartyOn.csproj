@@ -1056,8 +1056,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ModelsBusiness\AsistenteMB.cs" />
     <Compile Include="ModelsBusiness\CategoriaMB.cs" />
     <Compile Include="ModelsBusiness\EventoMB.cs" />
+    <Compile Include="ModelsBusiness\FavoritoMB.cs" />
     <Compile Include="ModelsBusiness\UsuarioMB.cs" />
     <Compile Include="Models\AsistenteModel.cs" />
     <Compile Include="Models\CategoriaModel.cs" />

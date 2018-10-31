@@ -132,20 +132,8 @@ namespace SlnPartyOn.ModelsBusiness
         public List<EventoModel> EventoListar()
         {
             List<EventoModel> lista = new List<EventoModel>();
-            string consulta = @"SELECT [id]
-                                ,[Nombre_Evento]
-                                ,[Descripcion_Evento]
-                                ,[UsuarioId]
-                                ,[CategoriaId]
-                                ,[FechaInicioEvento]
-                                ,[HoraEvento]
-                                ,[Direccion_Evento]
-                                ,[Imagen]
-                                ,[Estado_Evento]
-                                ,[latitud]
-                                ,[longitud]
-                            FROM [dbo].[Evento]
-                            order by Id Desc";
+            string consulta = @"select (select count(ad.Id) from Asistente ad where ad.EventoId = e.Id) as Asistencia, e.* 
+                                from Evento e where e.estado_evento = 1";
             try
             {
                 using (var con = new SqlConnection(_conexion))
@@ -158,6 +146,7 @@ namespace SlnPartyOn.ModelsBusiness
                         {
                             var eventomodel = new EventoModel
                             {
+                                Asistentes = Utilitarios.ValidarStr(dr["Asistencia"]),
                                 Id = Utilitarios.ValidarInteger(dr["Id"]),
                                 Nombre_Evento = Utilitarios.ValidarStr(dr["Nombre_Evento"]),
                                 Descripcion_Evento = Utilitarios.ValidarStr(dr["Descripcion_Evento"]),
@@ -183,7 +172,6 @@ namespace SlnPartyOn.ModelsBusiness
 
             return lista;
         }
-
         public bool EventoUsuarioInsertar(EventoModel evento)
         {
             bool respuesta = false;

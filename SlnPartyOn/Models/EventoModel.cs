@@ -19,5 +19,6 @@ namespace SlnPartyOn.Models
         public bool Estado_Evento { get; set; }
         public string latitud { get; set; }
         public string longitud { get; set; }
+        public string Asistentes { get; set; }
     }
 }
