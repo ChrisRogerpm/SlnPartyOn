@@ -13,12 +13,16 @@ namespace SlnPartyOn.Controllers
     {
         private UsuarioMB usuarioBm = new UsuarioMB();
         private EventoMB eventomb = new EventoMB();
-        [HttpPost]
+        private AsistenteMB asistentemb = new AsistenteMB();
+        private FavoritoMB favoritomb = new FavoritoMB();
+        //private Favorito
+
+        //[HttpPost]
         public ActionResult IniciarSesionLoginWebService(string Email, string Password)
         {
             var errormensaje = "";
             bool respuestaConsulta = false;
-            string resultado = "";
+            string resultado = string.Empty;
             var tipo_usuario = 0;
             var usuario = new UsuarioModel();
 
@@ -49,7 +53,8 @@ namespace SlnPartyOn.Controllers
 
             //            return Json(new { respuesta = respuestaConsulta, mensaje = errormensaje, usuario_ = tipo_usuario });
             //return Json(new { respuesta = respuestaConsulta, mensaje = errormensaje, usuario_ = tipo_usuario });
-            return Json(resultado);
+            //return Json(usuario);
+            return Json(usuario, JsonRequestBehavior.AllowGet);
             //return new JsonStringResult('success');
         }
         //[HttpGet]
@@ -65,10 +70,10 @@ namespace SlnPartyOn.Controllers
             {
                 errormensaje = exp.Message + ",Llame Administrador";
             }
-            return Json(lista.ToList(), JsonRequestBehavior.AllowGet);
+            return Json(lista, JsonRequestBehavior.AllowGet);
 
         }
-        [HttpPost]
+        
         public ActionResult ListarEventoFiestaJson()
         {
             var errormensaje = "";
@@ -82,10 +87,10 @@ namespace SlnPartyOn.Controllers
             {
                 errormensaje = exp.Message + ",Llame Administrador";
             }
-            return Json(new { data = lista.ToList(), mensaje = errormensaje });
+            return Json(lista, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        
         public ActionResult ListarEventoMusicaJson()
         {
             var errormensaje = "";
@@ -99,10 +104,10 @@ namespace SlnPartyOn.Controllers
             {
                 errormensaje = exp.Message + ",Llame Administrador";
             }
-            return Json(new { data = lista.ToList(), mensaje = errormensaje });
+            return Json(lista, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        
         public ActionResult ListarEventoGastronomiaJson()
         {
             var errormensaje = "";
@@ -116,9 +121,9 @@ namespace SlnPartyOn.Controllers
             {
                 errormensaje = exp.Message + ",Llame Administrador";
             }
-            return Json(new { data = lista.ToList(), mensaje = errormensaje });
+            return Json(lista, JsonRequestBehavior.AllowGet);
         }
-        [HttpPost]
+        
         public ActionResult ListarEventoDeporteJson()
         {
             var errormensaje = "";
@@ -132,9 +137,9 @@ namespace SlnPartyOn.Controllers
             {
                 errormensaje = exp.Message + ",Llame Administrador";
             }
-            return Json(new { data = lista.ToList(), mensaje = errormensaje });
+            return Json(lista, JsonRequestBehavior.AllowGet);
         }
-        [HttpPost]
+        
         public ActionResult ListarEventoOtroJson()
         {
             var errormensaje = "";
@@ -148,7 +153,52 @@ namespace SlnPartyOn.Controllers
             {
                 errormensaje = exp.Message + ",Llame Administrador";
             }
-            return Json(new { data = lista.ToList(), mensaje = errormensaje });
+            return Json(lista, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public ActionResult MarcarAsistente(int UsuarioId,int EventoId)
+        {
+            var errormensaje = "";
+            int asistente = 0;
+            try
+            {
+                asistente = asistentemb.CantidadAsistente(UsuarioId, EventoId);
+                if(asistente > 0)
+                {
+                    asistentemb.BorrarAsistente(UsuarioId, EventoId);
+                }
+                else
+                {
+                    asistentemb.AsistenteInsertar(UsuarioId, EventoId);
+                }
+            }
+            catch (Exception exp)
+            {
+                errormensaje = exp.Message + ",Llame Administrador";
+            }
+            return Json(asistente, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult MarcarFavoritos(int UsuarioId, int EventoId)
+        {
+            var errormensaje = "";
+            int favoritos = 0;
+            try
+            {
+                favoritos = favoritomb.CantidadFavoritos(UsuarioId, EventoId);
+                if (favoritos > 0)
+                {
+                    favoritomb.BorrarFavoritos(UsuarioId, EventoId);
+                }
+                else
+                {
+                    favoritomb.FavoritosInsertar(UsuarioId, EventoId);
+                }
+            }
+            catch (Exception exp)
+            {
+                errormensaje = exp.Message + ",Llame Administrador";
+            }
+            return Json(favoritos, JsonRequestBehavior.AllowGet);
         }
 
 
