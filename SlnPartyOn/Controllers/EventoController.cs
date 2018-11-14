@@ -12,6 +12,7 @@ namespace SlnPartyOn.Controllers
     public class EventoController : Controller
     {
         private EventoMB eventomb = new EventoMB();
+        private FavoritoMB favoritomb = new FavoritoMB();
         public ActionResult EventoUsuarioListarVista()
         {
             return View("~/Views/Evento/EventoUsuarioListarVista.cshtml");
@@ -159,6 +160,23 @@ namespace SlnPartyOn.Controllers
             }
 
             return Json(new { respuesta = respuestaConsulta, mensaje = errormensaje });
+        }
+
+        [HttpPost]
+        public ActionResult TotalFavoritosEventoJson(int Id)
+        {
+            var errormensaje = "";
+            int respuestaconsulta = 0;
+            try
+            {
+                respuestaconsulta = favoritomb.TotalFavoritosEvento(Id);
+            }
+            catch (Exception exp)
+            {
+                errormensaje = exp.Message + ",Llame Administrador";
+            }
+
+            return Json(new { data = respuestaconsulta, mensaje = errormensaje });
         }
     }
 }

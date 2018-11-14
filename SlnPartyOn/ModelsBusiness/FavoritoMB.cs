@@ -51,6 +51,40 @@ namespace SlnPartyOn.ModelsBusiness
             return total_resultado;
         }
 
+        public int TotalFavoritosEvento(int eventoId)
+        {
+            int total_resultado = 0;
+            string consulta = @"SELECT count(Id) TotalFavoritoss
+                              FROM [dbo].[Favoritos] 
+                                where EventoId = @p1 ";
+            try
+            {
+                using (var con = new SqlConnection(_conexion))
+                {
+                    con.Open();
+                    var query = new SqlCommand(consulta, con);
+                    query.Parameters.AddWithValue("@p1", eventoId);
+
+                    using (var dr = query.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            while (dr.Read())
+                            {
+                                total_resultado = Utilitarios.ValidarInteger(dr["TotalFavoritoss"]);
+                            }
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+            }
+            return total_resultado;
+        }
+
         public int BorrarFavoritos(int usuarioId, int eventoId)
         {
             int total_resultado = 0;

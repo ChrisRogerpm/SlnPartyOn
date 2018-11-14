@@ -200,6 +200,17 @@ namespace SlnPartyOn.Controllers
             }
             return Json(favoritos, JsonRequestBehavior.AllowGet);
         }
+        public ActionResult VerificarFavoritos(int UsuarioId, int EventoId)
+        {
+            int favoritos = 0;
+            string resultado = "";
+            favoritos = favoritomb.CantidadFavoritos(UsuarioId, EventoId);
+            if (favoritos > 0)
+            {
+                resultado = "Verificado";
+            }
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
 
 
     }
