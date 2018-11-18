@@ -1,0 +1,82 @@
+﻿#contenedorMenu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    /* height: 100vh;*/
+    float: left;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+    ul li {
+        list-style-type: none;
+        margin: -5px 8px;
+        transition: 0.5s;
+        padding: 16px;
+    }
+
+        ul li a {
+            display: block;
+            position: relative;
+            text-decoration: none;
+            padding: 5px;
+            font-size: 18px;
+            font-family: sans-serif;
+            color: lightgray;
+            text-transform: none;
+            transition: 0.5s;
+        }
+
+    ul:hover li a {
+        transform: scale(1.5);
+        opacity: .2;
+        filter: blur(2.5px);
+        color: #44EA04; /*color de texto aplicado HOVER*/
+    }
+
+    ul li a:hover {
+        transform: scale(1.3);
+        opacity: 1;
+        filter: blur(0);
+    }
+
+        /*boton
+    ul li a:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #45CD10;
+        transition: 0.5s;
+        transform-origin: right;
+        transform: scaleX(0);
+        z-index: -1;
+        border-radius: 3px;
+      
+    }   */
+
+        ul li a:hover:before {
+            transition: 0.5s;
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+
+#cabeza {
+    height: 90px; /*ancho de primera barra de menu*/
+}
+
+#logotipo {
+    float: left;
+    margin: 15px;
+}
+
+#padUsuario {
+    padding-top: 6px;
+}

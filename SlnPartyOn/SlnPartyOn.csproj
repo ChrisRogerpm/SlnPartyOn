@@ -293,6 +293,7 @@
     <Content Include="Content\assets\js\treeview\bootstrap-treeview.js" />
     <Content Include="Content\assets\js\treeview\custom-treeview.js" />
     <Content Include="Content\assets\js\wysiwyg-editor\editor.js" />
+    <Content Include="Content\css\estiloAdicional.css" />
     <Content Include="Content\css\highcharts.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\Evento\_1.PNG" />

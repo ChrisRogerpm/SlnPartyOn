@@ -45,11 +45,16 @@
     <!-- Main CSS -->
     <link href="~/Content/assets/css/main.css" rel="stylesheet" media="screen" />
 
+
     <!-- Ion Icons -->
     <link href="~/Content/assets/fonts/icomoon/icomoon.css" rel="stylesheet" />
     <link href="~/Content/viewJs/toastr.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="~/Content/assets/css/datatables/dataTables.bs.min.css">
+
+
+    <link href="~/Content/css/estiloAdicional.css" rel="stylesheet" />
+
 
     <!-- highchart-->
     <script src="~/Content/assets/js/highcharts.js"></script>
@@ -66,10 +71,10 @@
 <body>
 
     <!-- Header starts -->
-    <header>
+    <header id="cabeza">
 
         <!-- Logo starts -->
-        <a href="~/Evento/EventoUsuarioListarVista" class="logo">
+        <a href="~/Evento/EventoUsuarioListarVista" class="logo" id="logotipo">
             <img src="~/Content/assets/img/logo.png" alt="PartyOn" />
         </a>
         <!-- Logo ends -->
@@ -133,26 +138,42 @@
                 }
                 else
                 {
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="~/Usuario/InicioUsuarioVista" role="button">Inicio </a>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav">
-                        <li class="">
-                            <a href="~/Evento/EventoUsuarioListarVista" role="button">Eventos </a>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav">
-                        <li class="">
-                            <a href="#" role="button">Estado de Cuenta </a>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav">
-                        <li class="">
-                            <a href="~/Estadistica/Index" role="button">Estadistica </a>
-                        </li>
-                    </ul>
+
+
+                    <!--start MENU-->
+                    <div id="contenedorMenu">
+                        <ul>
+                            <li><a href="~/Usuario/InicioUsuarioVista">Inicio</a></li>
+                            <li><a href="~/Evento/EventoUsuarioListarVista">Eventos</a></li>
+                            <li><a href="#">Cuenta</a></li>
+                            <li><a href="~/Estadistica/Index">Estadistica</a></li>
+                        </ul>
+                    </div>
+                    <!--end MENU-->
+
+
+
+
+                    <!--         <ul class="nav navbar-nav">
+                         <li class="dropdown">
+                             <a href="~/Usuario/InicioUsuarioVista" role="button">Inicio </a>
+                         </li>
+                     </ul>
+                     <ul class="nav navbar-nav">
+                         <li class="">
+                             <a href="~/Evento/EventoUsuarioListarVista" role="button">Eventos </a>
+                         </li>
+                     </ul>
+                     <ul class="nav navbar-nav">
+                         <li class="">
+                             <a href="#" role="button">Estado de Cuenta </a>
+                         </li>
+                     </ul>
+                     <ul class="nav navbar-nav">
+                         <li class="">
+                             <a href="~/Estadistica/Index" role="button">Estadistica </a>
+                         </li>
+                     </ul>  -->
                 }
             </div>
         </nav>
