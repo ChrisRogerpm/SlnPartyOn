@@ -109,6 +109,7 @@
     <Content Include="Content\assets\css\datepicker.css" />
     <Content Include="Content\assets\css\dragula\dragula.css" />
     <Content Include="Content\assets\css\gallery.css" />
+    <Content Include="Content\assets\css\highcharts.css" />
     <Content Include="Content\assets\css\horizontal-bar\chart.css" />
     <Content Include="Content\assets\css\images\ui-bg_flat_0_aaaaaa_40x100.html" />
     <Content Include="Content\assets\css\images\ui-bg_glass_95_fef1ec_1x400.html" />
@@ -217,6 +218,8 @@
     <Content Include="Content\assets\js\datatables\dataTables.min.js" />
     <Content Include="Content\assets\js\datatables\fixedHeader.min.js" />
     <Content Include="Content\assets\js\dragula\dragula.min.js" />
+    <Content Include="Content\assets\js\export-data.js" />
+    <Content Include="Content\assets\js\exporting.js" />
     <Content Include="Content\assets\js\flot\custom\area.js" />
     <Content Include="Content\assets\js\flot\custom\area10.js" />
     <Content Include="Content\assets\js\flot\custom\combine-chart-compare.js" />
@@ -242,6 +245,9 @@
     <Content Include="Content\assets\js\gallery\baguetteBox.js" />
     <Content Include="Content\assets\js\gallery\custom-gallery.js" />
     <Content Include="Content\assets\js\gallery\plugins.js" />
+    <Content Include="Content\assets\js\highcharts-3d.js" />
+    <Content Include="Content\assets\js\highcharts-more.js" />
+    <Content Include="Content\assets\js\highcharts.js" />
     <Content Include="Content\assets\js\horizontal-bar\horizBarChart.min.js" />
     <Content Include="Content\assets\js\horizontal-bar\horizBarCustom.js" />
     <Content Include="Content\assets\js\jquery-ui.min.js" />
@@ -275,6 +281,7 @@
     <Content Include="Content\assets\js\morris\morris.css" />
     <Content Include="Content\assets\js\morris\morris.min.js" />
     <Content Include="Content\assets\js\morris\raphael-min.js" />
+    <Content Include="Content\assets\js\offline-exporting.js" />
     <Content Include="Content\assets\js\peity\custom-peity.js" />
     <Content Include="Content\assets\js\peity\peity.min.js" />
     <Content Include="Content\assets\js\pricing.html" />
@@ -286,6 +293,7 @@
     <Content Include="Content\assets\js\treeview\bootstrap-treeview.js" />
     <Content Include="Content\assets\js\treeview\custom-treeview.js" />
     <Content Include="Content\assets\js\wysiwyg-editor\editor.js" />
+    <Content Include="Content\css\highcharts.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\Evento\_1.PNG" />
     <Content Include="Content\Evento\_2.PNG" />
@@ -414,6 +422,8 @@
     <Content Include="Content\js\dropify.js" />
     <Content Include="Content\js\dropzone.js" />
     <Content Include="Content\js\editorDemo.js" />
+    <Content Include="Content\js\export-data.js" />
+    <Content Include="Content\js\exporting.js" />
     <Content Include="Content\js\file-upload.js" />
     <Content Include="Content\js\float-chart.js" />
     <Content Include="Content\js\form-addons.js" />
@@ -422,6 +432,10 @@
     <Content Include="Content\js\formpickers.js" />
     <Content Include="Content\js\google-charts.js" />
     <Content Include="Content\js\google-maps.js" />
+    <Content Include="Content\js\highcharts-3d.js" />
+    <Content Include="Content\js\highcharts-more.js" />
+    <Content Include="Content\js\highcharts-more.src.js" />
+    <Content Include="Content\js\highcharts.js" />
     <Content Include="Content\js\ion-range-slider.js" />
     <Content Include="Content\js\jq.tablesort.js" />
     <Content Include="Content\js\jquery-file-upload.js" />
@@ -435,6 +449,7 @@
     <Content Include="Content\js\modal-demo.js" />
     <Content Include="Content\js\morris.js" />
     <Content Include="Content\js\no-ui-slider.js" />
+    <Content Include="Content\js\offline-exporting.js" />
     <Content Include="Content\js\owl-carousel.js" />
     <Content Include="Content\js\paginate.js" />
     <Content Include="Content\js\popover.js" />
@@ -997,6 +1012,8 @@
     <Content Include="Content\viewJs\Categoria\CategoriaEditarVista.js" />
     <Content Include="Content\viewJs\Categoria\CategoriaInsertarVista.js" />
     <Content Include="Content\viewJs\Categoria\CategoriaListarVista.js" />
+    <Content Include="Content\viewJs\Estadistica\linea.js" />
+    <Content Include="Content\viewJs\Estadistica\pie.js" />
     <Content Include="Content\viewJs\Evento\EventoEditarVista.js" />
     <Content Include="Content\viewJs\Evento\EventoInsertarVista.js" />
     <Content Include="Content\viewJs\Evento\EventoListarVista.js" />
@@ -1048,6 +1065,7 @@
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\ComentarioController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\EstadisticaController.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\FavoritoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -1100,6 +1118,7 @@
     <Content Include="Views\Evento\EventoUsuarioEditarVista.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
+    <Content Include="Views\Estadistica\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
