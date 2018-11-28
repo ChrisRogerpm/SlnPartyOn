@@ -80,3 +80,14 @@ ul {
 #padUsuario {
     padding-top: 6px;
 }
+.probando {
+    transition: transform .2s; /* Animation */
+    /*background-image: linear-gradient(white, black);*/
+}
+    .probando:hover {
+        transform: scale(1.1);
+    }
+.imagen-evento{
+    border: 0px;
+    padding: 0px;
+}

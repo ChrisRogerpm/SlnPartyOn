@@ -37,5 +37,6 @@ namespace SlnPartyOn.Controllers
             }
             return Json(new { data = lista.ToList(), mensaje = errormensaje });
         }
+
     }
 }
