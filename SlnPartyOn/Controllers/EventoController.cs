@@ -34,6 +34,12 @@ namespace SlnPartyOn.Controllers
             ViewBag.Id = Id;
             return View("~/Views/Evento/EventoUsuarioEditarVista.cshtml");
         }
+        public ActionResult EventosporMes()
+        {
+            
+            return View("~/Views/Evento/EventosporMes.cshtml");
+        }
+
         [HttpPost]
         public ActionResult EventoUsuarioRegistrarJson(EventoModel evento)
         {
@@ -94,6 +100,9 @@ namespace SlnPartyOn.Controllers
             }
             return Json(new { data = lista.ToList(), mensaje = errormensaje });
         }
+
+       
+
         [HttpPost]
         public ActionResult EventoUsuarioIDObtenerJson(int Id)
         {

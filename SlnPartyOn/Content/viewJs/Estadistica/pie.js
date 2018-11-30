@@ -4,7 +4,7 @@
 });
 function pie() {
 
-    var url = basepath + "/Categoria/CategoriaListarJson";
+    var url = basepath + "/Categoria/EventosporCategoriaJson";
     
     // Build the chart
     $.ajax({
@@ -20,14 +20,11 @@ function pie() {
             $.each(resp, function (key, value) {
 
                 myarray.push({
-                    'nombrecolumna de el array de highchart': value.Categoria,
-                    'nombrecolumna de el array de highchart': value.Total,
+                    'name': value.Nombre,
+                    'y': value.Total,
                 })
 
             });
-
-
-
             //pie
             Highcharts.chart('container', {
                 chart: {
@@ -60,9 +57,7 @@ function pie() {
                     colorByPoint: true,
                     data: [{
                         name: 'Musica',
-                        y: 61.41,
-                        sliced: true,
-                        selected: true
+                        y: 61.41                        
                     }, {
                         name: 'Gastronomia',
                         y: 11.84

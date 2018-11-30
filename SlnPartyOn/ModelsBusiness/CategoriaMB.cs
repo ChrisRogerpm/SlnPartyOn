@@ -55,6 +55,9 @@ namespace SlnPartyOn.ModelsBusiness
 
             return lista;
         }
+
+        
+
         public List<CategoriaModel> EventoporCategoria()
         {
             List<CategoriaModel> lista = new List<CategoriaModel>();
@@ -74,8 +77,7 @@ namespace SlnPartyOn.ModelsBusiness
                         while (dr.Read())
                         {
                             var categoria = new CategoriaModel
-                            {
-                                Id = Utilitarios.ValidarInteger(dr["Id"]),
+                            {                                
                                 Nombre = Utilitarios.ValidarStr(dr["Nombre"]),
                                 Total = Utilitarios.ValidarInteger(dr["Total"])
                                 

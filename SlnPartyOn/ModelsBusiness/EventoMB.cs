@@ -172,6 +172,48 @@ namespace SlnPartyOn.ModelsBusiness
 
             return lista;
         }
+        //CANTIDAD DE EVENTOS POR MES
+        public List<EventoModel> EventosporMes()
+        {
+            List<EventoModel> lista = new List<EventoModel>();
+            string consulta = @"SELECT COUNT (*) AS Total, 
+                                MONTH(FechaInicioEvento) AS Mes
+                                FROM Evento
+                                WHERE YEAR(FechaInicioEvento)= 2018
+                                GROUP BY MONTH(FechaInicioEvento)
+                                ORDER BY MONTH(FechaInicioEvento) ASC;";
+            try
+            {
+                using (var con = new SqlConnection(_conexion))
+                {
+                    con.Open();
+                    var query = new SqlCommand(consulta, con);
+                    using (var dr = query.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            var eventomodel = new EventoModel
+                            {
+                                
+                                Total = Utilitarios.ValidarInteger(dr["Total"]),
+                                Mes = Utilitarios.ValidarInteger(dr["Mes"])
+                            };
+                            lista.Add(eventomodel);
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            return lista;
+        }
+        // END CANTIDAD DE EVENTOS POR MES
+
+
+
+
         public bool EventoUsuarioInsertar(EventoModel evento)
         {
             bool respuesta = false;

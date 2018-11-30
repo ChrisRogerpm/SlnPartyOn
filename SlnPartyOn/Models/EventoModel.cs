@@ -20,5 +20,8 @@ namespace SlnPartyOn.Models
         public string latitud { get; set; }
         public string longitud { get; set; }
         public string Asistentes { get; set; }
+
+        public int Total { get; set; }
+        public int Mes { get; set; }
     }
 }

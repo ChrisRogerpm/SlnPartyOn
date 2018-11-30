@@ -37,6 +37,20 @@ namespace SlnPartyOn.Controllers
             }
             return Json(new { data = lista.ToList(), mensaje = errormensaje });
         }
+        public ActionResult EventosporCategoriaJson()
+        {
+            var errormensaje = "";
+            var lista = new List<CategoriaModel>();
+            try
+            {
+                lista = categoriamb.EventoporCategoria();
+            }
+            catch (Exception exp)
+            {
+                errormensaje = exp.Message + ",Llame Administrador";
+            }
+            return Json(new { data = lista.ToList(), mensaje = errormensaje });
+        }
 
     }
 }
