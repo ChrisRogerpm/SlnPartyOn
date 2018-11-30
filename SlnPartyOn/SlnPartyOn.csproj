@@ -309,6 +309,10 @@
     <Content Include="Content\fonts\openSans\OpenSans-ExtraBold.html" />
     <Content Include="Content\fonts\openSans\OpenSans-Light.html" />
     <Content Include="Content\fonts\openSans\OpenSans-SemiBold.html" />
+    <Content Include="Content\images\auth\fondoIntro.jpg" />
+    <Content Include="Content\images\auth\fondoIntroSMT.jpg" />
+    <Content Include="Content\images\auth\fondoIntro_S.jpg" />
+    <Content Include="Content\images\auth\fondoIntro_SM.jpg" />
     <Content Include="Content\images\auth\logEvemtos_white.png" />
     <Content Include="Content\images\auth\login_1.jpg" />
     <Content Include="Content\images\auth\login_2.jpg" />
