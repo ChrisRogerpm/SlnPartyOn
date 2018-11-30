@@ -12,6 +12,8 @@ namespace SlnPartyOn.Models
         public string Descripcion { get; set; }
         public bool Estado { get; set; }
 
-        
+        public int Total { get; set; }
+
+
     }
 }
