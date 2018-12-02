@@ -21,7 +21,7 @@ function pie() {
 
                 myarray.push({
                     'name': value.Nombre,
-                    'y': value.Total,
+                    'y': value.Total
                 })
 
             });
@@ -55,22 +55,7 @@ function pie() {
                 series: [{
                     name: 'Categorias',
                     colorByPoint: true,
-                    data: [{
-                        name: 'Musica',
-                        y: 61.41                        
-                    }, {
-                        name: 'Gastronomia',
-                        y: 11.84
-                    }, {
-                        name: 'Fiesta',
-                        y: 10.85
-                    }, {
-                        name: 'Deportes',
-                        y: 4.67
-                    }, {
-                        name: 'Otros',
-                        y: 4.67
-                    }]
+                    data: myarray
                 }]
             });
                 //pien end
