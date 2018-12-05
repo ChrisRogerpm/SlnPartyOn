@@ -2,8 +2,35 @@
 @{
     ViewBag.Title = "Index";
 }
+
+<!--start cambios-->
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+    <ul class="right-stats" id="mini-nav-right">
+        <li>
+            <a href="~/Estadistica2/index" class="btn btn-primary btn-block"><i class="icon-arrow-with-circle-right"></i> Gráfico Circular</a>
+        </li>
+    </ul>
+</div>
+<!--end cambios-->
+
+
+
+
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 @section js{
+
+    <!--grafico de lineas-->
     <script src="~/Content/viewJs/Estadistica/linea.js"></script>
+
+
 }
 
+
+
+<br />
+<br />
+<br />
+<br />
+<div class="col-lg-12 col-md-12">
+    <p>En este Indicador gráfico podemos visualizar el número de eventos que realizarón por cada mes del año.</p>
+</div>

@@ -61,3 +61,4 @@ $(function () {
 		$.plot(holder, data, chartOptions );
 	}
 });
+

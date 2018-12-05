@@ -1070,6 +1070,7 @@
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\ComentarioController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\Estadistica2Controller.cs" />
     <Compile Include="Controllers\EstadisticaController.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\FavoritoController.cs" />
@@ -1125,6 +1126,7 @@
     <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <Content Include="Views\Estadistica\Index.cshtml" />
     <Content Include="Views\Evento\EventosporMes.cshtml" />
+    <Content Include="Views\Estadistica2\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
