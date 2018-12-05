@@ -177,11 +177,15 @@ namespace SlnPartyOn.ModelsBusiness
         {
             List<EventoModel> lista = new List<EventoModel>();
             string consulta = @"SELECT COUNT (*) AS Total, 
-                                MONTH(FechaInicioEvento) AS Mes
-                                FROM Evento
+                                MONTH(FechaInicioEvento) AS Mes,
+								CAT.Descripcion AS Descripcion
+                                FROM Evento EVE
+								inner join  Categoria CAT
+								ON EVE.CategoriaId = CAT.Id
                                 WHERE YEAR(FechaInicioEvento)= 2018
-                                GROUP BY MONTH(FechaInicioEvento)
-                                ORDER BY MONTH(FechaInicioEvento) ASC;";
+                                GROUP BY MONTH(FechaInicioEvento), CAT.Descripcion 
+								ORDER BY CAT.Descripcion, MONTH(FechaInicioEvento) ASC
+                                ;";
             try
             {
                 using (var con = new SqlConnection(_conexion))
@@ -196,7 +200,8 @@ namespace SlnPartyOn.ModelsBusiness
                             {
                                 
                                 Total = Utilitarios.ValidarInteger(dr["Total"]),
-                                Mes = Utilitarios.ValidarInteger(dr["Mes"])
+                                Mes = Utilitarios.ValidarInteger(dr["Mes"]),
+                                Descripcion_Categoria = Utilitarios.ValidarStr(dr["Descripcion"])
                             };
                             lista.Add(eventomodel);
                         }
@@ -207,7 +212,76 @@ namespace SlnPartyOn.ModelsBusiness
             catch (Exception ex)
             {
             }
-            return lista;
+            return _FormatearLista(lista);
+        }
+
+        private List<EventoModel> _FormatearLista(List<EventoModel> ListaEvento)
+        {
+            List<EventoModel> EventoModel = new List<EventoModel>();
+            List<EventoModel> Modelo = new List<EventoModel>();
+
+
+            string CategoriaBa = "";
+
+            foreach (var Evento in ListaEvento)
+            {
+                if (!CategoriaBa.Equals(Evento.Descripcion_Categoria))
+                {
+                    CategoriaBa = Evento.Descripcion_Categoria;
+                    for (int i = 1; i <= 12; i++)
+                    {
+                        EventoModel Model = new EventoModel();
+                        Model.Mes = i;
+                        Model.Total = 0;
+                        Model.Descripcion_Categoria = Evento.Descripcion_Categoria;
+                        Modelo.Add(Model);
+                    }
+                }
+            }
+
+            Modelo = Modelo.OrderBy(g => g.Mes).OrderBy(g => g.Descripcion_Categoria).ToList();
+
+            foreach (var Mode in Modelo)
+            {
+                foreach (var Lista in ListaEvento)
+                {
+                    if (Mode.Descripcion_Categoria.Equals(Lista.Descripcion_Categoria))
+                    {
+                        if (Mode.Mes == Lista.Mes)
+                        {
+                            Mode.Total = Lista.Total;
+                        }
+                    }
+                }
+            }
+
+            string CategoriaBase = "";
+
+            foreach (var Lista in ListaEvento)
+            {
+                if (!CategoriaBase.Equals(Lista.Descripcion_Categoria))
+                {
+                    CategoriaBase = Lista.Descripcion_Categoria;
+                    EventoModel Mod = new EventoModel();
+                    Mod.Descripcion_Categoria = CategoriaBase;
+                    EventoModel.Add(Mod);
+                }
+            }
+
+            foreach (var Lista in EventoModel)
+            {
+                List<int> ListaB = new List<int>();
+                foreach (var Lista2 in Modelo)
+                {
+                    if (Lista.Descripcion_Categoria.Equals(Lista2.Descripcion_Categoria))
+                    {
+                        ListaB.Add(Lista2.Total);
+                    }
+                }
+                Lista.Cantidad_Evento = ListaB;
+            }
+
+            return EventoModel;
         }
         // END CANTIDAD DE EVENTOS POR MES
 

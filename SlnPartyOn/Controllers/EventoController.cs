@@ -34,11 +34,11 @@ namespace SlnPartyOn.Controllers
             ViewBag.Id = Id;
             return View("~/Views/Evento/EventoUsuarioEditarVista.cshtml");
         }
-        public ActionResult EventosporMes()
-        {
+        //public ActionResult EventosporMes()
+        //{
             
-            return View("~/Views/Evento/EventosporMes.cshtml");
-        }
+        //    return View("~/Views/Evento/EventosporMes.cshtml");
+        //}
 
         [HttpPost]
         public ActionResult EventoUsuarioRegistrarJson(EventoModel evento)
@@ -186,6 +186,20 @@ namespace SlnPartyOn.Controllers
             }
 
             return Json(new { data = respuestaconsulta, mensaje = errormensaje });
+        }
+        public ActionResult EventosporMesJson()
+        {
+            var errormensaje = "";
+            var lista = new List<EventoModel>();
+            try
+            {
+                lista = eventomb.EventosporMes();
+            }
+            catch (Exception exp)
+            {
+                errormensaje = exp.Message + ",Llame Administrador";
+            }
+            return Json(new { data = lista.ToList(), mensaje = errormensaje });
         }
     }
 }

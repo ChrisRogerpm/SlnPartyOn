@@ -60,9 +60,7 @@ function pie() {
             });
                 //pien end
         }
-    });
-
-    
+    });    
 }
 
 

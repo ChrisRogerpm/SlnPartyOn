@@ -23,5 +23,8 @@ namespace SlnPartyOn.Models
 
         public int Total { get; set; }
         public int Mes { get; set; }
+        public string Descripcion_Categoria { get; set; }
+
+        public List<int> Cantidad_Evento { get; set; }  
     }
 }
