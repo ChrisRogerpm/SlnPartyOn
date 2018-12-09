@@ -1,4 +1,5 @@
 ﻿
+
 @{
     Layout = null;
 }
@@ -11,7 +12,7 @@
     if (usuario != null)
     {
 
-        if(usuario.TipoUsuario == 1)
+        if (usuario.TipoUsuario == 1)
         {
             Response.Redirect("~/Usuario/InicioAdministradorVista");
         }
@@ -42,25 +43,27 @@
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div class="content-wrapper auth p-0 theme-two">
                 <div class="row d-flex align-items-stretch">
-
-                    <!--img fondo de login
-                    <div class="col-md-4 banner-section d-none d-md-flex align-items-stretch justify-content-center">
-                        <div class="slide-content bg-1" style="width:505px; height:680px;">
-                        </div>
-                    </div>  -->
-
+                    <!--      <div class="col-md-8 banner-section d-none d-md-flex align-items-stretch justify-content-center">
+                                <div class="slide-content bg-1" style="width:505px; height:500px;">
+                                </div>
+                            </div> -->
+                    <div class="col-12 col-md-12 h-100 bg-white" style="background-image: url('../Content/images/auth/fondoIntroSMT.jpg');">
 
 
 
-                    <div class="col-12 col-md- h-100 bg-white">    <!--se combio col-md-8 por 12-->
                         <div class="auto-form-wrapper d-flex align-items-center justify-content-center flex-column">
                             <div class="nav-get-started">
-                                <p>¿No tienes una cuenta?</p>
-                                <a class="btn get-started-btn bg-primary text-white RegistrarLogin" href="#">EMPIEZA YA!</a>
+                                <p><b>¿No tienes una cuenta?</b></p>
+                                <a class="btn get-started-btn bg-primary text-white RegistrarLogin" href="#" style="border-color:#2E9AFE">EMPIEZA YA!</a>
                             </div>
                             <form action="#" autocomplete="off" id="frmNuevo">
                                 <h3 class="mr-auto text-center">Bienvenido</h3>
-                                <p class="mb-5 mr-auto text-center">Disfruta de los beneficios de ser usuario <b style="color:#6BC907">PREMIUM</b> gratis por un mes.</p>
+                                <p class="mb-5 mr-auto text-center">Disfruta de los beneficios de ser usuario <b style="color:#2FCE03">PREMIUM</b> gratis por un mes.</p>
+
+
+
+
+
 
                                 <div class="form-group">
                                     <div class="input-group">
@@ -80,15 +83,26 @@
                                 </div>
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                                    <label class="custom-control-label" for="defaultUnchecked" style="font-size:14px">Recordar</label>
+                                    <label class="custom-control-label" for="defaultUnchecked" style="font-size:14px; color:white;">Recordar</label>
                                 </div>
                                 <br />
                                 <div class="form-group">
-                                    <button type="button" class="btn btn-primary btn-block btnIniciarSesion" style="background:#6BC907; border-color:#6BC907 ">Iniciar Sesión</button>
+                                    <button type="button" class="btn btn-primary btn-block btnIniciarSesion" style="background:#2FCE03; border-color:#2FCE03; width:200px; margin-left:140px;">Iniciar Sesión</button>
                                 </div>
+
+
+
+
+
                                 <div class="wrapper mt-5 text-gray">
-                                    <p class="footer-text text-center">Copyright © 2018 Desarrollo Web II - 2018. All rights reserved.</p>
+                                    <p class="footer-text text-center" style="color:#72818B;">Copyright © 2018 Desarrollo Web II - 2018 All rights reserved.</p>
                                 </div>
+
+
+
+
+
+
                             </form>
                         </div>
                     </div>
